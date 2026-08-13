@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-R%26D%20Complete-blue?style=for-the-badge" alt="Status" />
-  <img src="https://img.shields.io/badge/Phase-0%20Research-orange?style=for-the-badge" alt="Phase" />
-  <img src="https://img.shields.io/badge/Docs-59%20Files-green?style=for-the-badge" alt="Docs" />
+  <img src="https://img.shields.io/badge/Status-BRD%20Complete-blue?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/Phase-1%20Requirements-orange?style=for-the-badge" alt="Phase" />
+  <img src="https://img.shields.io/badge/Docs-123%20Files-green?style=for-the-badge" alt="Docs" />
   <img src="https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge" alt="License" />
 </p>
 
@@ -252,11 +252,31 @@ Nine complete end-to-end business chains documented:
 ```
 poultry-management-software/
 │
-├── MASTER_POULTRY_SYSTEM_RND.md          # 📖 Master R&D Report (Start Here)
+├── MASTER_REQUIREMENT_DOCUMENT.md         # 🎯 Client-Specific Master BRD (Sri Murugan)
+├── MASTER_POULTRY_SYSTEM_RND.md          # 📖 Generic Industry R&D Report
 ├── README.md                              # 📄 This file
 ├── project_state.md                       # 📊 Current project state
 │
-└── docs/                                  # 📚 Complete Documentation (59 files)
+├── requirements/                          # 🏢 Client-Specific BRD (64 files)
+│   ├── 00-master/                         #    Cross-domain reviews & statuses
+│   ├── 00-source/                         #    Client answers, facts, glossary
+│   ├── 01-business/                       #    Client profile & objectives
+│   ├── 02-as-is/                          #    Current workflows & problems
+│   ├── 03-to-be/                          #    Target operating model
+│   ├── 04-domain/                         #    Farm, flock, mortality, feed rules
+│   ├── 05-processing/                     #    Live vs Processed sales, yield logic
+│   ├── 06-egg-business/                   #    Egg grading, sales, profitability
+│   ├── 07-product-pricing/                #    Pricing engine, discounts
+│   ├── 08-supply-chain/                   #    Purchase, inventory, delivery
+│   ├── 09-operations/                     #    Finance, profitability, employee
+│   ├── 10-intelligence/                   #    Demand forecasting, slow-moving items
+│   ├── 11-system/                         #    Dashboards, offline mobile
+│   ├── 12-catalogs/                       #    MOD-XXX, FEAT-XXX, BR-XXX catalogs
+│   ├── 13-technical/                      #    Architecture, API, QA
+│   ├── 14-traceability/                   #    Traceability matrix
+│   └── 15-roadmap/                        #    Implementation roadmap
+│
+└── docs/                                  # 📚 Generic Industry Knowledge (59 files)
     ├── 00-overview/                       #    Executive summary, product vision
     ├── 01-market-research/                #    Competitor analysis, gap analysis
     ├── 02-poultry-domain/                 #    Glossary (164+ terms), business types
@@ -292,12 +312,10 @@ poultry-management-software/
 
 ### Quick Start — Read in This Order
 
-1. **[Executive Summary](docs/00-overview/executive-summary.md)** — 5-minute overview of the entire project
-2. **[Product Vision](docs/00-overview/product-vision.md)** — Mission, target users, business types
-3. **[Master R&D Report](MASTER_POULTRY_SYSTEM_RND.md)** — Complete reference (links to all 59 files)
-4. **[Module Hierarchy](docs/04-modules/module-hierarchy.md)** — What the system does
-5. **[MVP Definition](docs/21-roadmap/mvp-definition.md)** — What we build first
-6. **[Implementation Roadmap](docs/21-roadmap/implementation-phases.md)** — 14-phase plan
+1. **[Master Requirement Document](MASTER_REQUIREMENT_DOCUMENT.md)** — The single source of truth for Sri Murugan Poultry & Agro Group (Start Here)
+2. **[Executive Summary](docs/00-overview/executive-summary.md)** — 5-minute overview of the generic product vision
+3. **[Master R&D Report](MASTER_POULTRY_SYSTEM_RND.md)** — Complete reference for generic industry research
+4. **[Implementation Roadmap](requirements/15-roadmap/roadmap.md)** — 4-phase plan for development
 
 ### Deep Dive — By Topic
 
@@ -468,5 +486,5 @@ This project is proprietary software. All rights reserved.
 <p align="center">
   <strong>Poultry Management ERP SaaS Platform</strong><br/>
   <em>From chick placement to profit realization — one platform for every poultry business.</em><br/><br/>
-  R&D Phase Complete • 59 Documents • 320+ KB of Research • Ready for Development
+  BRD Phase Complete • 123 Documents • Sri Murugan Agro Group Mapped • Ready for Architecture Design
 </p>
