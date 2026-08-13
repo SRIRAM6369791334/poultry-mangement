@@ -28,6 +28,8 @@ The AI Roadmap outlines the phased integration of artificial intelligence and ma
   - Mortality and FCR Prediction: Based on feed, weather, and historical batch data.
   - Disease Risk: Early warning based on subtle shifts in water/feed consumption.
   - Stockout / Overstock Prediction [CLIENT-196-199].
+  - Customer Churn Prediction: Identify dealers or customers likely to stop ordering based on ordering frequency and complaint history [CLIENT-CONFIRMED, AI-004].
+  - Fraud / Suspicious Transaction Detection: Flag abnormal inventory adjustments, unusual weight reconciliations, or anomalous pricing overrides [INFERRED, AI-006].
 
 ### 2.4 Phase 4: AI Agents (Prescriptive & Interactive)
 - **Concept:** Advanced LLM and AI agents assisting management.
@@ -35,6 +37,7 @@ The AI Roadmap outlines the phased integration of artificial intelligence and ma
   - Natural Language Queries (e.g., "Why did mortality spike in shed 3?").
   - Automated Reorder Drafts (system drafts the PO, human approves).
   - Anomaly Investigation (AI correlates weather, feed batch, and supplier data to explain a yield drop).
+  - Backup Supplier Recommendation: Automatically suggest alternative suppliers and draft POs if primary supplier quality drops or lead times fail [CLIENT-CONFIRMED, AI-005].
 
 ## 3. AI Use Case Examples
 

@@ -1,5 +1,7 @@
 # 10.1 Demand Forecasting Module
 
+> **Related R&D:** See [AI Roadmap](../../docs/18-ai/ai-roadmap.md) and [Predictive Maintenance](../../docs/18-ai/predictive-maintenance.md) for full AI integration capabilities.
+
 ## 1. Overview
 The Demand Forecasting module transforms historical data into predictive insights. It shifts the system from reactive reporting to proactive planning (Past → Current → Forecast → Recommendation → Action) [CLIENT-220]. The system predicts future demand across various dimensions (time, product, customer, selling mode) and provides actionable recommendations for procurement and production.
 

@@ -528,6 +528,40 @@ The following business objectives are derived directly from the client's current
   - Layer farming [CONFIRMED]
 - **Owner's Vision:** "I don't want just a billing software. I want a system that understands my business and helps me make management decisions. Data → Information → KPI → Analysis → Alert → Decision → Business Action." (CLIENT-181) [CONFIRMED]
 
+
+---
+
+
+# Complaint Management System
+
+## Overview
+A dedicated workflow to track, manage, and resolve customer and dealer complaints regarding processed meat quality, egg breakages, or delivery shortages.
+
+## Features
+
+### FEAT-048: Complaint Logging & SLA Tracking
+- **Purpose**: Capture complaints against specific Sales Orders and track resolution time.
+- **Business Rule (TEMP-BR-053)**: All complaints related to processed meat quality must be resolved (Refund, Credit Note, or Rejection) within 24 hours.
+- **Status**: [CLIENT-CONFIRMED]
+- **Source**: CLIENT-CONV-L1450-L1458
+
+### FEAT-049: Root Cause Categorization
+- **Purpose**: Identify recurring issues (e.g., Transit Damage vs Processing Defect).
+- **Status**: [INFERRED]
+
+## Workflows
+**Complaint Resolution Workflow:**
+1. Customer/Dealer logs a complaint (or Sales Rep logs on their behalf).
+2. Complaint linked to specific Batch/Invoice.
+3. Evidence (photos) uploaded.
+4. QA/Sales Manager reviews.
+5. Decision: Approved (Issue Credit Note/Refund) or Rejected.
+6. Inventory Adjustment (if goods returned).
+
+## Reports
+- **REP-020**: Monthly Complaint Summary (By Customer, Reason, and Value).
+- **Status**: [PROPOSED]
+
 =============================================================
 
 # MODULE: 02-as-is
@@ -1127,6 +1161,7 @@ During processing, a single bird yields multiple outputs beyond the primary meat
 
 # Live vs Processed Sales
 
+> **Related R&D:** See [Processing Management](../../docs/04-modules/processing-management.md) for full module capabilities.
 ## 1. Core Principle [CONFIRMED]
 The fundamental business rule for Sri Murugan Poultry & Agro Group is: 
 "When we sell live, the customer takes the processing loss. When we sell processed, WE take the processing loss" (CLIENT-127).
@@ -1701,6 +1736,43 @@ Manages the complete sales lifecycle from order capture to delivery and invoicin
 ---
 
 
+# Capacity Planning Module
+
+## Overview
+Centralized capacity planning allows Sri Murugan Poultry & Agro Group to identify bottlenecks across farms, fleet, processing centers, and staff resources before they cause operational failures.
+
+## Features
+
+### FEAT-045: Farm Capacity Utilization
+- **Purpose**: Track live bird capacity vs active placements.
+- **Business Rule (TEMP-BR-050)**: `Max Capacity = Total Shed Area / Space Requirement per Bird (based on season)`.
+- **Status**: [CLIENT-CONFIRMED]
+- **Source**: CLIENT-CONV-L3102-L3105
+
+### FEAT-046: Processing Plant Throughput
+- **Purpose**: Prevent over-scheduling harvests beyond daily processing capability.
+- **Business Rule (TEMP-BR-051)**: `Daily Harvest ≤ Plant Processing Capacity (Birds/Hour * Operating Hours)`.
+- **Status**: [CLIENT-CONFIRMED]
+- **Source**: CLIENT-CONV-L3140-L3145
+
+### FEAT-047: Fleet Transport Capacity
+- **Purpose**: Optimize bird transport scheduling.
+- **Business Rule (TEMP-BR-052)**: Transport capacity must factor in mortality risk due to overloading, adjusted for temperature.
+- **Status**: [INFERRED]
+- **Source**: CLIENT-CONV-L3150-L3155
+
+## User Stories
+- **US-040**: As an Operations Manager, I want to view a 30-day capacity forecast for processing vs scheduled harvests, so I can arrange extra labor or adjust placement cycles.
+- **US-041**: As a Transport Manager, I want an alert when scheduled dispatches exceed available fleet capacity.
+
+## AI Opportunities (Future Scope)
+- **Status**: [PROPOSED]
+- **Idea**: AI-driven automatic balancing of harvest schedules to minimize transportation costs while ensuring the processing plant operates at 95% capacity.
+
+
+---
+
+
 # 9.1 Employee & Payroll Management
 
 ## 9.1.1 Overview
@@ -1864,6 +1936,8 @@ The AI Roadmap outlines the phased integration of artificial intelligence and ma
   - Mortality and FCR Prediction: Based on feed, weather, and historical batch data.
   - Disease Risk: Early warning based on subtle shifts in water/feed consumption.
   - Stockout / Overstock Prediction [CLIENT-196-199].
+  - Customer Churn Prediction: Identify dealers or customers likely to stop ordering based on ordering frequency and complaint history [CLIENT-CONFIRMED, AI-004].
+  - Fraud / Suspicious Transaction Detection: Flag abnormal inventory adjustments, unusual weight reconciliations, or anomalous pricing overrides [INFERRED, AI-006].
 
 ### 2.4 Phase 4: AI Agents (Prescriptive & Interactive)
 - **Concept:** Advanced LLM and AI agents assisting management.
@@ -1871,6 +1945,7 @@ The AI Roadmap outlines the phased integration of artificial intelligence and ma
   - Natural Language Queries (e.g., "Why did mortality spike in shed 3?").
   - Automated Reorder Drafts (system drafts the PO, human approves).
   - Anomaly Investigation (AI correlates weather, feed batch, and supplier data to explain a yield drop).
+  - Backup Supplier Recommendation: Automatically suggest alternative suppliers and draft POs if primary supplier quality drops or lead times fail [CLIENT-CONFIRMED, AI-005].
 
 ## 3. AI Use Case Examples
 
@@ -1886,6 +1961,8 @@ The AI Roadmap outlines the phased integration of artificial intelligence and ma
 
 
 # 10.1 Demand Forecasting Module
+
+> **Related R&D:** See [AI Roadmap](../../docs/18-ai/ai-roadmap.md) and [Predictive Maintenance](../../docs/18-ai/predictive-maintenance.md) for full AI integration capabilities.
 
 ## 1. Overview
 The Demand Forecasting module transforms historical data into predictive insights. It shifts the system from reactive reporting to proactive planning (Past → Current → Forecast → Recommendation → Action) [CLIENT-220]. The system predicts future demand across various dimensions (time, product, customer, selling mode) and provides actionable recommendations for procurement and production.
@@ -2106,11 +2183,12 @@ This document outlines the requirements for role-specific dashboards across the 
 
 ## 1. Owner Dashboard [CLIENT-028]
 - **Role:** Owner / Executive
-- **KPIs:** Total Farms, Total Sheds, Active Batches, Live Birds, Today's Mortality, Today's Feed, FCR, Average Weight, Today's Sales, Outstanding, Stock Value, Expenses, Profit.
+- **KPIs:** Total Farms, Total Sheds, Active Batches, Live Birds, Today's Mortality, Today's Feed, FCR, Average Weight, Today's Sales, Outstanding, Stock Value, Expenses, Profit, **Algorithmic Business Health Score [AI-007]**.
 - **Widgets:** 
   - Farm Overview Summary (Farms, Sheds, Batches)
   - Live Bird count and Mortality Trend
   - Financial Summary (P&L, Outstanding, Sales vs Expenses)
+  - Unified Business Health Meter (Composite metric of operations, finance, and sales health).
 - **Data Sources:** Core Farming, Sales, Finance, Inventory Modules
 - **Refresh Rate:** Near Real-time (Sync dependent)
 - **Alerts:** High Mortality, Low Weight, Poor FCR, Low Feed Stock, Overdue Payment, Medicine Expiry, Vaccine Due.
@@ -2118,8 +2196,8 @@ This document outlines the requirements for role-specific dashboards across the 
 
 ## 2. Management Dashboard [CLIENT-180]
 - **Role:** General Manager / Operations Manager
-- **KPIs:** Production Yield, Farm Efficiency, Batch Profitability, Resource Utilization.
-- **Widgets:** Cross-farm comparison, Batch performance metrics.
+- **KPIs:** Production Yield, Farm Efficiency, Batch Profitability, Resource Utilization, **Algorithmic Business Health Score [AI-007]**.
+- **Widgets:** Cross-farm comparison, Batch performance metrics, Health Score drill-down (identifying weak links in the supply chain).
 - **Data Sources:** All operational modules.
 - **Refresh Rate:** Near Real-time.
 - **Alerts:** High Mortality, Low Yield, High Wastage, Low Stock, Overdue Payment, High Return, Processing Bottleneck.

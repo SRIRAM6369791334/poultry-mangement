@@ -4,11 +4,12 @@ This document outlines the requirements for role-specific dashboards across the 
 
 ## 1. Owner Dashboard [CLIENT-028]
 - **Role:** Owner / Executive
-- **KPIs:** Total Farms, Total Sheds, Active Batches, Live Birds, Today's Mortality, Today's Feed, FCR, Average Weight, Today's Sales, Outstanding, Stock Value, Expenses, Profit.
+- **KPIs:** Total Farms, Total Sheds, Active Batches, Live Birds, Today's Mortality, Today's Feed, FCR, Average Weight, Today's Sales, Outstanding, Stock Value, Expenses, Profit, **Algorithmic Business Health Score [AI-007]**.
 - **Widgets:** 
   - Farm Overview Summary (Farms, Sheds, Batches)
   - Live Bird count and Mortality Trend
   - Financial Summary (P&L, Outstanding, Sales vs Expenses)
+  - Unified Business Health Meter (Composite metric of operations, finance, and sales health).
 - **Data Sources:** Core Farming, Sales, Finance, Inventory Modules
 - **Refresh Rate:** Near Real-time (Sync dependent)
 - **Alerts:** High Mortality, Low Weight, Poor FCR, Low Feed Stock, Overdue Payment, Medicine Expiry, Vaccine Due.
@@ -16,8 +17,8 @@ This document outlines the requirements for role-specific dashboards across the 
 
 ## 2. Management Dashboard [CLIENT-180]
 - **Role:** General Manager / Operations Manager
-- **KPIs:** Production Yield, Farm Efficiency, Batch Profitability, Resource Utilization.
-- **Widgets:** Cross-farm comparison, Batch performance metrics.
+- **KPIs:** Production Yield, Farm Efficiency, Batch Profitability, Resource Utilization, **Algorithmic Business Health Score [AI-007]**.
+- **Widgets:** Cross-farm comparison, Batch performance metrics, Health Score drill-down (identifying weak links in the supply chain).
 - **Data Sources:** All operational modules.
 - **Refresh Rate:** Near Real-time.
 - **Alerts:** High Mortality, Low Yield, High Wastage, Low Stock, Overdue Payment, High Return, Processing Bottleneck.

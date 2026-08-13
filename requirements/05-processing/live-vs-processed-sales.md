@@ -1,5 +1,6 @@
 # Live vs Processed Sales
 
+> **Related R&D:** See [Processing Management](../../docs/04-modules/processing-management.md) for full module capabilities.
 ## 1. Core Principle [CONFIRMED]
 The fundamental business rule for Sri Murugan Poultry & Agro Group is: 
 "When we sell live, the customer takes the processing loss. When we sell processed, WE take the processing loss" (CLIENT-127).
